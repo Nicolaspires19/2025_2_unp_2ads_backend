@@ -1,9 +1,11 @@
-package br.edu.unipaulistana.backend.Blog.domainmode;
+package br.edu.unipaulistana.backend.Blog.domainmode.repositores;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor

@@ -3,11 +3,10 @@ package br.edu.unipaulistana.backend.Blog.controllers;
 import br.edu.unipaulistana.backend.Blog.domainmode.repositores.User;
 import br.edu.unipaulistana.backend.Blog.domainmode.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/users")
@@ -20,5 +19,15 @@ public class UserController {
     @GetMapping
     public List<User> findAll() {
         return this.userService.findAll();
+    }
+    //GET http://localhost:8080/users/{id}
+    @GetMapping("/{id}")
+    public User findById(@PathVariable UUID id) {
+        return this.userService.findById(id);
+    }
+    //DELETE http://localshot:8080/users/{id}
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable UUID id) {
+        this.userService.deleteById(id);
     }
 }

@@ -29,6 +29,7 @@ public class NonPersistentUserRepository {
     public List<User> findAll() {
         return this.internalState.stream().toList();
     }
+
     public User findById(UUID id) {
         for(User user : this.internalState) {
             if(user.getId().equals(id))
@@ -36,9 +37,22 @@ public class NonPersistentUserRepository {
         }
         return null;
     }
+
     public void removeById(UUID id) {
         this.internalState.removeIf(
-                user -> user.getId().equals(id)
+                user ->
+                        user.getId().equals(id)
         );
+    }
+
+    public User create(User user) {
+        this.internalState.add(user);
+        return user;
+    }
+
+    public User update(User user) {
+        this.internalState.remove(user);
+        this.internalState.add(user);
+        return user;
     }
 }

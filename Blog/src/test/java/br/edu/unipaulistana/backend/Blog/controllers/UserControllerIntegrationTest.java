@@ -43,7 +43,7 @@ public class UserControllerIntegrationTest {
                                 .content(objectMapper.writeValueAsString(bodyCreate)))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id", is(id)))
-                .andExpect(jsonPath("$.name", is("orlandao")))
+                .andExpect(jsonPath("$.name", is("Nicolas")))
                 .andReturn();
 
         var created = objectMapper.readValue(postResult.getResponse().getContentAsByteArray(),

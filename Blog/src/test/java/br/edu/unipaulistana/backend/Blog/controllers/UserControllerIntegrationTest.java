@@ -51,6 +51,4 @@ public class UserControllerIntegrationTest {
         var returnedId = created.getId();
 
     }
-
-
 }

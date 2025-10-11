@@ -2,7 +2,6 @@ package br.edu.unipaulistana.backend.Blog.domainmode.repositores;
 
 import com.github.javafaker.Faker;
 import org.springframework.stereotype.Component;
-
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;

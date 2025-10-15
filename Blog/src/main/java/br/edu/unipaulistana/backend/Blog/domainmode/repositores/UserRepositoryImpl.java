@@ -35,6 +35,8 @@ public class UserRepositoryImpl implements UserRepositoryCustom<User, UUID>{
         return users.stream().findFirst();
     }
 
+
+
     @Override
     public List<User> findByMinRolesAndNameLikeCriteria(int minRoles, String name) {
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();

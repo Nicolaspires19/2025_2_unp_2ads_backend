@@ -3,16 +3,42 @@ package br.edu.unipaulistana.backend.Blog.domainmode.repositores;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import org.springframework.data.repository.query.Param;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface UserRepository extends JpaRepository<User, UUID> {
+public interface UserRepository extends
+        JpaRepository<User, UUID>,
+        QuerydslPredicateExecutor<User>,
+        UserRepositoryCustom<User, UUID>{
 
     @Query ("SELECT u FROM User u WHERE u.email = :email")
     public Optional<User> findByEmail(String email);
 
-    Optional<User> findByName(String name);
-    Optional<User> findByNameAndEmail(String name, String email);
-    Optional<User> findByNameStartingWithAndNameEndingWith(String name1, String name2);
+    public Optional<User> findByName(String name);
+    public Optional<User> findByNameAndEmail(String name, String email);
+    public Optional<User> findByNameStartingWithAndNameEndingWith(String name1, String name2);
+
+    //  Q1 JPQL busca o user por id e faz fetch com profile e roles
+    @Query("""
+    select distinct u
+    from User u
+    left join fetch u.profile
+    left join fetch u.roles
+    where u.id = :id
+""")
+    Optional<User> findByIdWithProfileAndPosts(@Param("id") UUID id);
+
+    //Q2 JPQL usuarios cujo nome tem um parametro
+    @Query("""
+    select u 
+    from User u 
+    where size(u.roles) >= :minRoles
+    and lower(u.name) like lower(concat('%', :namePart,'%'))
+    order by u.name asc 
+""")
+    List<User> findMinPostsAndNameLike(@Param("minPosts") int minPosts, @Param("namePart") String namePart);
 }

@@ -1,7 +1,7 @@
 package br.edu.unipaulistana.backend.Blog.controllers;
 
-import br.edu.unipaulistana.backend.Blog.domainmode.repositores.User;
-import br.edu.unipaulistana.backend.Blog.domainmode.service.UserService;
+import br.edu.unipaulistana.backend.Blog.domainmodel.User;
+import br.edu.unipaulistana.backend.Blog.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

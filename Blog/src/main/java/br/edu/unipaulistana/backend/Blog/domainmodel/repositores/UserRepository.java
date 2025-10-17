@@ -1,6 +1,6 @@
-package br.edu.unipaulistana.backend.Blog.domainmode.repositores;
+package br.edu.unipaulistana.backend.Blog.domainmodel.repositores;
 
-
+import br.edu.unipaulistana.backend.Blog.domainmodel.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;

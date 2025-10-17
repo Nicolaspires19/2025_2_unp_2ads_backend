@@ -1,6 +1,6 @@
-package br.edu.unipaulistana.backend.Blog.domainmode.service;
+package br.edu.unipaulistana.backend.Blog.service;
 
-import br.edu.unipaulistana.backend.Blog.domainmode.repositores.User;
+import br.edu.unipaulistana.backend.Blog.domainmodel.User;
 
 import java.util.List;
 import java.util.UUID;

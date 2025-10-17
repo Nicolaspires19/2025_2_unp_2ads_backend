@@ -1,4 +1,4 @@
-package br.edu.unipaulistana.backend.Blog.domainmode.repositores;
+package br.edu.unipaulistana.backend.Blog.domainmodel;
 
 import jakarta.persistence.*;
 import lombok.*;

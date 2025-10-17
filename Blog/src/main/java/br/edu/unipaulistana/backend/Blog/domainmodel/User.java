@@ -1,9 +1,9 @@
-package br.edu.unipaulistana.backend.Blog.domainmode.repositores;
+package br.edu.unipaulistana.backend.Blog.domainmodel;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
+
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "TBL_USERS", indexes = {@Index(name = "IDX_EMAIL_PASSWORD",columnList = "name , password"),
+@Table(name = "TBL_USERS", indexes = {@Index(name = "IDX_EMAIL_PASSWORD",columnList = "email , password"),
         @Index(name = "IDX_EMAIL", columnList = "email"),
             @Index(name = "IDX_PASSWORD", columnList = "password")
 })

@@ -1,7 +1,6 @@
-package br.edu.unipaulistana.backend.Blog.domainmode.repositores;
+package br.edu.unipaulistana.backend.Blog.domainmodel;
 
 import lombok.*;
-import org.springframework.core.metrics.StartupStep;
 
 import java.util.Set;
 

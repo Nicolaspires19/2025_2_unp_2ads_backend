@@ -1,5 +1,6 @@
-package br.edu.unipaulistana.backend.Blog.domainmode.repositores;
+package br.edu.unipaulistana.backend.Blog.domainmodel.repositores;
 
+import br.edu.unipaulistana.backend.Blog.domainmodel.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -11,7 +12,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 @RequiredArgsConstructor
-public class UserRepositoryImpl implements UserRepositoryCustom<User, UUID>{
+public class UserRepositoryImpl implements UserRepositoryCustom<User,UUID>{
 
     @PersistenceContext
     private final EntityManager entityManager;

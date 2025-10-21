@@ -38,7 +38,7 @@ public interface UserRepository extends
     from User u 
     where size(u.roles) >= :minRoles
     and lower(u.name) like lower(concat('%', :namePart,'%'))
-    order by u.name asc 
+    order by u.name asc     
 """)
     List<User> findMinPostsAndNameLike(@Param("minPosts") int minPosts, @Param("namePart") String namePart);
 }

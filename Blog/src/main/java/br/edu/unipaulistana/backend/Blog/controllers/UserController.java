@@ -3,6 +3,8 @@ package br.edu.unipaulistana.backend.Blog.controllers;
 import br.edu.unipaulistana.backend.Blog.domainmodel.User;
 import br.edu.unipaulistana.backend.Blog.domainmodel.repositores.UserRepository;
 import br.edu.unipaulistana.backend.Blog.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +17,14 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
-
+@Tag(name = "Usuarios", description="Operações Relativas à usuarios")
 public class UserController {
 
     private final UserService userService;
     private final UserRepository userRepository;
 
     @GetMapping
+    @Operation(method = "Get", summary = "FIND ALL")
     public ResponseEntity<List<User>> findAll(){
         return ResponseEntity.ok(this.userService.findAll());
     }
@@ -74,7 +77,7 @@ public class UserController {
     public Optional<User> findByUserWithDetails(@PathVariable UUID id){
         return this.userRepository.findByIdWithProfileAndPosts(id);
     }
-    // 6. ENDPOINT PARA findMinPostsAndNameLike
+    // ENDPOINT PARA findMinPostsAndNameLike
     @GetMapping("/filter")
     public List<User> filterUsers(@RequestParam int minPosts, @RequestParam String namePart){
         return userRepository.findMinPostsAndNameLike(minPosts, namePart);

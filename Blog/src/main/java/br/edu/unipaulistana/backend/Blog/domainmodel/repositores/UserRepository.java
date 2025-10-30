@@ -12,7 +12,6 @@ import java.util.UUID;
 
 public interface UserRepository extends
         JpaRepository<User, UUID>,
-        QuerydslPredicateExecutor<User>,
         UserRepositoryCustom<User, UUID>{
 
     @Query ("SELECT u FROM User u WHERE u.email = :email")

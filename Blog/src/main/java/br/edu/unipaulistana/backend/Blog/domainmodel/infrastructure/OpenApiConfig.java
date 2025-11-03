@@ -13,7 +13,7 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("Blog")
                                 .version("1.0")
-                                .description("ADS")
+                                .description("Description of what the service will do")
 
         );
     }

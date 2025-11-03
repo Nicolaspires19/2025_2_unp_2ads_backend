@@ -5,7 +5,6 @@ import br.edu.unipaulistana.backend.Blog.domainmodel.repositores.UserRepository;
 import br.edu.unipaulistana.backend.Blog.service.UserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,17 +13,22 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+//http://locallhost:8080/users
 @RestController
-@RequestMapping("/users")
-@RequiredArgsConstructor
+@RequestMapping("/api/users")
+//@RequiredArgsConstructor
 @Tag(name = "Usuarios", description="Operações Relativas à usuarios")
 public class UserController {
 
     private final UserService userService;
-    private final UserRepository userRepository;
+    private UserRepository userRepository;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping
-    @Operation(method = "Get", summary = "FIND ALL")
+    @Operation(method = "GET", summary = "Listar todos usuarios")
     public ResponseEntity<List<User>> findAll(){
         return ResponseEntity.ok(this.userService.findAll());
     }
@@ -57,6 +61,7 @@ public class UserController {
     public ResponseEntity<User> patchUser(@RequestBody User user){
         return new ResponseEntity<>(this.userService.partialUpdate(user), HttpStatus.CREATED);
     }
+
     // ENDPOINT PARA FIND BY EMAIL
     @GetMapping("/email")
     public Optional<User> findByEmail(@RequestParam String email){

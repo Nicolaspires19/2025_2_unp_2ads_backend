@@ -31,7 +31,7 @@ public interface UserRepository extends
 """)
     Optional<User> findByIdWithProfileAndPosts(@Param("id") UUID id);
 
-    //Q2 JPQL usuarios cujo nome tem um parametro
+    //Q2 JPQL usuarios cujo nome tem um parametro que tenham pelo menos N roles.
     @Query("""
     select u 
     from User u 

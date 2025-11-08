@@ -1,6 +1,7 @@
 package br.edu.unipaulistana.backend.Blog.service;
 
 import br.edu.unipaulistana.backend.Blog.domainmodel.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,4 +18,6 @@ public interface UserService {
     User update(User user);
 
     User partialUpdate(User user);
+
+    UserDetails loadUserByUsername(String username);
 }

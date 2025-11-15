@@ -16,7 +16,7 @@ import java.util.UUID;
         @Index(name = "IDX_EMAIL", columnList = "email"),
             @Index(name = "IDX_PASSWORD", columnList = "password")
 })
-
+@Builder//Evita construtores grandes com mais de  paramêtros
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

@@ -1,4 +1,4 @@
-package br.edu.unipaulistana.backend.Blog.domainmodel.infrastructure.Config;
+package br.edu.unipaulistana.backend.Blog.infrastructure.config;
 
 import br.edu.unipaulistana.backend.Blog.service.UserService;
 import jakarta.servlet.FilterChain;

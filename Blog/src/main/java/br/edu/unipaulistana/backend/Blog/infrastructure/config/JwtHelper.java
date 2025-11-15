@@ -1,8 +1,6 @@
-package br.edu.unipaulistana.backend.Blog.domainmodel.infrastructure.Config;
+package br.edu.unipaulistana.backend.Blog.infrastructure.config;
 
-import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
@@ -12,6 +10,7 @@ import java.util.Date;
 
 @Component
 public class JwtHelper {
+
     private  final String SECRET = "CHAVE_SECRETA_SUPER_SECRETA_";
     private  final int TOKEN_EXPIRATION_MS = 1000*60*60*20;
 

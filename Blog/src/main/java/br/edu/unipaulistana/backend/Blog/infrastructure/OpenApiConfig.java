@@ -1,4 +1,4 @@
-package br.edu.unipaulistana.backend.Blog.domainmodel.infrastructure;
+package br.edu.unipaulistana.backend.Blog.infrastructure;
 
 
 import io.swagger.v3.oas.models.OpenAPI;
@@ -13,8 +13,6 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("Blog")
                                 .version("1.0")
-                                .description("Description of what the service will do")
-
-        );
+                                .description("Description of what the service will do"));
     }
 }
